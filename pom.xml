@@ -53,6 +53,11 @@
        <resourceGroup>deleteall2</resourceGroup>
        <appName>salmankacdoe</appName>
        <!-- Begin of App Settings  -->
+       <runtime>
+         <os>linux</os>
+         <javaVersion>jre8</javaVersion>
+         <webContainer>jre8</webContainer>
+       </runtime>
        <appSettings>
           <property>
                 <name>JAVA_OPTS</name>
