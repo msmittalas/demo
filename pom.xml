@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.5.RELEASE</version>
+		<version>2.1.13.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
@@ -24,6 +24,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>spring-cloud-azure-servicebus-queue-stream-binder</artifactId>
+    <version>1.1.0.RC5</version>
+</dependency>
+   
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -36,6 +42,18 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+			<dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-security-keyvault-secrets</artifactId>
+      <version>4.0.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-identity</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+   
 	</dependencies>
 
 	<build>
@@ -44,39 +62,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-webapp-maven-plugin</artifactId>
-    <version>1.9.0</version>
-    <configuration>
-       <schemaVersion>V2</schemaVersion>
-       <resourceGroup>deleteall2</resourceGroup>
-       <appName>salmankacdoe</appName>
-       <!-- Begin of App Settings  -->
-       <runtime>
-         <os>linux</os>
-         <javaVersion>jre8</javaVersion>
-         <webContainer>jre8</webContainer>
-       </runtime>
-       <appSettings>
-          <property>
-                <name>JAVA_OPTS</name>
-                <value>-Dserver.port=80</value>
-          </property>
-       </appSettings>
-       <!-- End of App Settings  -->
-       <deployment>
-         <resources>
-           <resource>
-             <directory>${project.basedir}/target</directory>
-             <includes>
-               <include>*.jar</include>
-             </includes>
-           </resource>
-         </resources>
-       </deployment>
-      </configuration>
-</plugin>
+
 		</plugins>
 		
 	</build>
